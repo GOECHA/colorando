@@ -1,19 +1,18 @@
 class Color {
     constructor() {
-      this.color = ``;
+      this.color = this.genColor();
       this.locked =false;
     }
-      genColor(){
+    genColor(){
       var hexId = ``;
       var combos = `abcdef0123456789`;
       for(var i = 0; i < 6; i++){
       hexId += combos.charAt(Math.floor(Math.random() * combos.length));
-      
+    }
+      return `#${hexId}`
   }
-  return `#${hexId}`
-  }
-}
-  
+};
+
   module.exports = Color;
 // create a class with the name of Color, and properties of a randonm hex code color, also a lock key of false.
 
