@@ -4,8 +4,8 @@ var newId = document.querySelector("#swatch-1")
 
 class Color {
   constructor(hexId) {
-    this.color = genColor();
-    this.locked =false;
+    this.color = #ffffff || `#${hexId}`;
+    this.locked = false;
   }
 
    genColor(combos){
