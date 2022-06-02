@@ -36,6 +36,7 @@ h1{
 
 main{
   height: 80%;
+  width: 100%;
 
 }
 .swatch-container {
@@ -51,6 +52,7 @@ main{
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  width: 20%;
 
 }
 
@@ -82,30 +84,9 @@ cursor: pointer;
 #swatch-5{
   background: #cecdff;
 }
-#hex-code-1{
-    width: 55%;
-    font-size: .5em; 
-}
-
-#hex-code-2{
-  width: 55%;
-  font-size: .5em; 
-}
-
-#hex-code-3{
-  width: 55%;
-  font-size: .5em; 
-}
-
-#hex-code-4{
-  width: 55%;
-  font-size: .5em; 
-}
-
-
-#hex-code-5{
-  width: 55%;
-  font-size: .5em; 
+.hex-code {
+  width: 33%;
+  font-size: 1em;
 }
 
 .hidden {
@@ -116,4 +97,3 @@ cursor: pointer;
   flex-direction: row;
   justify-content: space-evenly;
 }
-
