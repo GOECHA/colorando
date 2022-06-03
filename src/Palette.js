@@ -2,6 +2,7 @@ class Palette {
     constructor() {
       this.colors = this.pushToPalette()
       this.id = Date.now();
+      this.newArr = newPalette;
     }
 
     pushToPalette(){

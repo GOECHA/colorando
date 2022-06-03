@@ -42,25 +42,25 @@ savedButton.addEventListener('click', savePalette)
 // element.classList.toggle('hidden')
 // }
 function loadNewPalette(freshPalette) {
-   freshPalette = new Palette();
+
 // for (var i = 0; i < freshPalette.colors.length; i++) {
 // swatchContainer[i].style.backgroundColor = freshPalette.colors[i].color;
 // }
-  label1.innerText = freshPalette.colors[0].color
-  label2.innerText = freshPalette.colors[1].color
-  label3.innerText = freshPalette.colors[2].color
-  label4.innerText = freshPalette.colors[3].color
-  label5.innerText = freshPalette.colors[4].color
-  swatch1.style.backgroundColor = freshPalette.colors[0].color
-  swatch2.style.backgroundColor = freshPalette.colors[1].color
-  swatch3.style.backgroundColor = freshPalette.colors[2].color
-  swatch4.style.backgroundColor = freshPalette.colors[3].color
-  swatch5.style.backgroundColor = freshPalette.colors[4].color
-
+  label1.innerText =  genColor(this.colors)
+  label2.innerText =  genColor(this.colors)
+  label3.innerText =  genColor(this.colors)
+  label4.innerText =  genColor(this.colors)
+  label5.innerText =  genColor(this.colors)
+  swatch1.style.backgroundColor = genColor(this.colors)
+  swatch2.style.backgroundColor = genColor(this.colors)
+  swatch3.style.backgroundColor = genColor(this.colors)
+  swatch4.style.backgroundColor = genColor(this.colors)
+  swatch5.style.backgroundColor = genColor(this.colors)
+  freshPalette = new Palette(this.colors[this.pushToPalette()])
+  return freshPalette
 }
 
 function savePalette() {
-    loadNewPalette()
     savedPalettes.push(freshPalette)
     console.log(savedPalettes)
 
