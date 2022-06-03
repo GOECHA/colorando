@@ -1,3 +1,5 @@
+var Palette = require("./Palette")
+
 class Color {
     constructor() {
 
@@ -12,6 +14,10 @@ class Color {
     }
       return `#${hexId}`
   }
+  
 };
+
+
+
 
   module.exports = Color;
