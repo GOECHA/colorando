@@ -97,3 +97,13 @@ cursor: pointer;
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+.user-input button {
+    border-radius: 20%;
+
+}
+.user-input button:hover {
+  box-shadow: inset 250px 0 0 0 hsla(131, 74%, 17%, 0.396);
+  cursor: pointer;
+  transition: linear 0.8s
+}

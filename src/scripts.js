@@ -1,3 +1,9 @@
+var savedPalettes = []
+var freshPalette;
+
+
+
+
 var label1 = document.querySelector('#hex-code-1')
 var label2 = document.querySelector('#hex-code-2')
 var label3 = document.querySelector('#hex-code-3')
@@ -14,25 +20,32 @@ var lock = document.querySelector('.locks')
 // var lock4 = document.querySelector('#lock-4')
 // var lock5 = document.querySelector('#lock-5')
 var randomButton = document.querySelector('#random')
+var savedButton = document.querySelector('#save')
+var swatchContainer = document.querySelector('.swatch')
 
-
-window.addEventListener('load', randomPalette)
+window.addEventListener('load', loadNewPalette)
 randomButton.addEventListener('click', randomPalette)
-lock.addEventListener('click', changeLock)
+savedButton.addEventListener('click', savePalette)
 
-function changeLock() {
-    if(lock.classList.) {
-    lock.classList.toggle('hidden')
-    }
-}
 
+
+
+
+// lock.addEventListener('click', changeLock)
+
+// function changeLock() {
+//     if(lock.classList.) {
+//     lock.classList.toggle('hidden')
+//     }
+// }
 // function test(element){
 // element.classList.toggle('hidden')
 // }
-
-
-function randomPalette() {
-  var freshPalette = new Palette()
+function loadNewPalette(freshPalette) {
+   freshPalette = new Palette();
+// for (var i = 0; i < freshPalette.colors.length; i++) {
+// swatchContainer[i].style.backgroundColor = freshPalette.colors[i].color;
+// }
   label1.innerText = freshPalette.colors[0].color
   label2.innerText = freshPalette.colors[1].color
   label3.innerText = freshPalette.colors[2].color
@@ -46,12 +59,33 @@ function randomPalette() {
 
 }
 
+function savePalette() {
+    loadNewPalette()
+    savedPalettes.push(freshPalette)
+    console.log(savedPalettes)
+
+}
+
+function randomPalette() {
+loadNewPalette()
+}
 
 
 function show(element) {
     element.classList.toggle('hidden')
 }
-
 function hide(element) {
     element.classList.add('hidden')
+}
+function toggleHiddenClass(element) {
+    element.classList.toggle('hidden')
+}
+
+function genColor(){
+    var hexId = ``;
+    var combos = `abcdef0123456789`;
+    for(var i = 0; i < 6; i++){
+    hexId += combos.charAt(Math.floor(Math.random() * combos.length));
+  }
+    return `#${hexId}`
 }
