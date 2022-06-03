@@ -1,9 +1,9 @@
 class Color {
     constructor() {
-
       this.color = this.genColor();
-      this.locked =false;
+      this.locked = false;
     }
+
     genColor(){
       var hexId = ``;
       var combos = `abcdef0123456789`;
@@ -12,6 +12,6 @@ class Color {
     }
       return `#${hexId}`
   }
-};
 
-  module.exports = Color;
+}
+
