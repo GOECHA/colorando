@@ -95,7 +95,7 @@ function savePalette() {
         savedPalettes.push(freshPalette)
         console.log(savedPalettes)
     }
-    makeNewPalette()
+    makeNewPalette() 
     displaySaved()
     append()
 }
@@ -139,9 +139,12 @@ function genColor(){
 
 
 
-// hideSavedPalettes(){
-//   savedSection.classList.tadd('hidden')
-// }
+function hideSavedPalettes(){
+  savedSection.classList.add('hidden')
+}
+
+
+
 
     // var freshPalette = ''
     // for (var i = 0; i < savedPalettes.length; i ++){
