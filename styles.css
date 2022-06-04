@@ -3,7 +3,6 @@
   font-family: briller,sans-serif;
   font-weight: 200;
   font-style: normal;
-  /* height: 100%; */
 }
 
 
@@ -16,7 +15,6 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 header {
@@ -107,3 +105,18 @@ cursor: pointer;
   cursor: pointer;
   transition: linear 0.8s
 }
+
+.saved-palettes {
+height: 15px;
+display: flex;
+}
+
+.mini-hex {
+  height: 30px;
+  width: 30px;
+}
+
+
+
+
+
