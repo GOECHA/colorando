@@ -1,11 +1,13 @@
 var savedPalettes = [];
 var freshPalette;
+var allHexCodes = document.querySelectorAll('.hex-code')
+console.log(allHexCodes)
 
-var label1 = document.querySelector('#hex-code-1')
-var label2 = document.querySelector('#hex-code-2')
-var label3 = document.querySelector('#hex-code-3')
-var label4 = document.querySelector('#hex-code-4')
-var label5 = document.querySelector('#hex-code-5')
+// var label1 = document.querySelector('#hex-code-1')
+// var label2 = document.querySelector('#hex-code-2')
+// var label3 = document.querySelector('#hex-code-3')
+// var label4 = document.querySelector('#hex-code-4')
+// var label5 = document.querySelector('#hex-code-5')
 var swatch1 = document.querySelector('#swatch-1')
 var swatch2 = document.querySelector('#swatch-2')
 var swatch3 = document.querySelector('#swatch-3')
@@ -83,21 +85,33 @@ function makeNewPalette() {
   swatch3.style.backgroundColor = freshPalette.colors[2].color,
   swatch4.style.backgroundColor = freshPalette.colors[3].color,
   swatch5.style.backgroundColor = freshPalette.colors[4].color,
-  label1.innerText = freshPalette.colors[0].color
-  label2.innerText = freshPalette.colors[1].color
-  label3.innerText = freshPalette.colors[2].color
-  label4.innerText = freshPalette.colors[3].color
-  label5.innerText = freshPalette.colors[4].color
+
+  // for(var i = 0; i < allHexCodes.length; i++) {
+  //   allHexCodes[i].innerText = freshPalette.colors[i].color
+  // }
+  // allHexCodes.innerText = freshPalette.colors[0].color
+  // label2.innerText = freshPalette.colors[1].color
+  // label3.innerText = freshPalette.colors[2].color
+  // label4.innerText = freshPalette.colors[3].color
+  // label5.innerText = freshPalette.colors[4].color
+  console.log(allHexCodes);
+}
+
+function test(){
+for (var i = 0; i < allHexCodes.length; i++) {
+  allHexCodes[i].innerText = freshPalette.colors[i].color
+  console.log(allHexCodes);
+}
 }
 
 function savePalette() {
+    savedSection.classList.remove('hidden')
     if(!savedPalettes.includes(freshPalette)){
         savedPalettes.push(freshPalette)
         console.log(savedPalettes)
     }
-    makeNewPalette()
-    displaySaved()
     append()
+    makeNewPalette()
 }
 function append () {
   var testing = document.createElement('figure')
@@ -110,18 +124,17 @@ function append () {
   <div class="mini-hex mini-hex5" style="background:${freshPalette.colors[4].color};"></div>
   <img class="mini-hex" id="t-can" src="./assets/SVG/trash-can.svg" alt="t-can">`
   savedSection.appendChild(testing)
-  displaySaved()
 }
 
 
-function displaySaved() {
-  savedSection.classList.remove('hidden')
-  miniHex1.style.backgroundColor = savedPalettes[0].colors[0].color
-  miniHex2.style.backgroundColor = savedPalettes[0].colors[1].color
-  miniHex3.style.backgroundColor = savedPalettes[0].colors[2].color
-  miniHex4.style.backgroundColor = savedPalettes[0].colors[3].color
-  miniHex5.style.backgroundColor = savedPalettes[0].colors[4].color
-}
+// function displaySaved() {
+//   savedSection.classList.remove('hidden')
+//   miniHex1.style.backgroundColor = savedPalettes[0].colors[0].color
+//   miniHex2.style.backgroundColor = savedPalettes[0].colors[1].color
+//   miniHex3.style.backgroundColor = savedPalettes[0].colors[2].color
+//   miniHex4.style.backgroundColor = savedPalettes[0].colors[3].color
+//   miniHex5.style.backgroundColor = savedPalettes[0].colors[4].color
+// }
 
 
 
