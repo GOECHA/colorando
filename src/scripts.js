@@ -1,5 +1,6 @@
 var savedPalettes = [];
 var freshPalette;
+
 var label1 = document.querySelector('#hex-code-1')
 var label2 = document.querySelector('#hex-code-2')
 var label3 = document.querySelector('#hex-code-3')
