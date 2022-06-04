@@ -15,16 +15,59 @@ var randomButton = document.querySelector('#random')
 var savedButton = document.querySelector('#save')
 var swatchContainer = document.querySelector('.swatch-container')
 var savedSection = document.querySelector('.saved-palettes')
-var miniHex1 =document.querySelector('.mini-hex1')
-var miniHex2 =document.querySelector('.mini-hex2')
-var miniHex3 =document.querySelector('.mini-hex3')
-var miniHex4 =document.querySelector('.mini-hex4')
-var miniHex5 =document.querySelector('.mini-hex5')
+var miniHex1 = document.querySelector('.mini-hex1')
+var miniHex2 = document.querySelector('.mini-hex2')
+var miniHex3 = document.querySelector('.mini-hex3')
+var miniHex4 = document.querySelector('.mini-hex4')
+var miniHex5 = document.querySelector('.mini-hex5')
+var lock1 = document.querySelector('#locked-1')
+var unlock1 = document.querySelector('#unlocked-1')
+var lock2 = document.querySelector('#locked-2')
+var unlock2 = document.querySelector('#unlocked-2')
+var lock3 = document.querySelector('#locked-3')
+var unlock3 = document.querySelector('#unlocked-3')
+var lock4 = document.querySelector('#locked-4')
+var unlock4 = document.querySelector('#unlocked-4')
+var lock5 = document.querySelector('#locked-5')
+var unlock5 = document.querySelector('#unlocked-5')
+var lock1Container = document.querySelector('#lock-1')
+var lock2Container = document.querySelector('#lock-2')
+var lock3Container = document.querySelector('#lock-3')
+var lock4Container = document.querySelector('#lock-4')
+var lock5Container = document.querySelector('#lock-5')
+
 
 
 window.addEventListener('load', makeNewPalette)
 randomButton.addEventListener('click', makeNewPalette)
 savedButton.addEventListener('click', savePalette)
+lock1Container.addEventListener('click', lockUnlock1)
+lock2Container.addEventListener('click', lockUnlock2)
+lock3Container.addEventListener('click', lockUnlock3)
+lock4Container.addEventListener('click', lockUnlock4)
+lock5Container.addEventListener('click', lockUnlock5)
+// unlock1.addEventListener('click', lockUnlock)
+
+function lockUnlock1(){
+  lock1.classList.toggle('hidden');
+  unlock1.classList.toggle('hidden');
+}
+function lockUnlock2(){
+  lock2.classList.toggle('hidden')
+  unlock2.classList.toggle('hidden')
+}
+function lockUnlock3(){
+  lock3.classList.toggle('hidden')
+  unlock3.classList.toggle('hidden')
+}
+function lockUnlock4(){
+  lock4.classList.toggle('hidden')
+  unlock4.classList.toggle('hidden')
+}
+function lockUnlock5(){
+  lock5.classList.toggle('hidden')
+  unlock5.classList.toggle('hidden')
+}
 
 function makeNewPalette() {
     freshPalette = new Palette();
@@ -71,7 +114,7 @@ function displaySaved() {
     miniHex4.style.backgroundColor = savedPalettes[0].colors[3].color
     miniHex5.style.backgroundColor = savedPalettes[0].colors[4].color
 }
- 
+
 
     // var freshPalette = ''
     // for (var i = 0; i < savedPalettes.length; i ++){
@@ -96,9 +139,9 @@ function displaySaved() {
 //         </section>`
 //     };
 //     saveCoverSection.innerHTML = smallCover;
-  
+
 //     var allSavedCovers = document.querySelectorAll('.mini-cover');
-  
+
 //     for (var i = 0; i < allSavedCovers.length; i++) {
 //       allSavedCovers[i].addEventListener('dblclick', deleteCover)
 //     }
