@@ -146,13 +146,13 @@ height: auto;
 width: auto;
 }
 
-h3{
-margin-top: 1%;
-}
-
 .mini-hex {
   height: 30px;
   width: 30px;
+}
+
+.hide-palettes{
+height:15%
 }
 
 .hidden {
