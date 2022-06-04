@@ -36,15 +36,13 @@ var lock3Container = document.querySelector('#lock-3')
 var lock4Container = document.querySelector('#lock-4')
 var lock5Container = document.querySelector('#lock-5')
 var hidePalettes = document.querySelector('#hide-palettes')
-// var testing = document.createElement('div')
-// document.saved-palettes.appendChild(testing)
-// console.log(testing)
+var savedSection = document.querySelector('.saved-palettes')
 
 
 window.addEventListener('load', makeNewPalette)
 randomButton.addEventListener('click', makeNewPalette)
 savedButton.addEventListener('click', savePalette)
-hidePalettes.addEventListener('click', hideSavedPalettes)
+// hidePalettes.addEventListener('click', hideSavedPalettes)
 lock1Container.addEventListener('click', lockUnlock1)
 lock2Container.addEventListener('click', lockUnlock2)
 lock3Container.addEventListener('click', lockUnlock3)
@@ -99,12 +97,35 @@ function savePalette() {
     }
     makeNewPalette() 
     displaySaved()
+    append()
+}
+function append () {
+
+var testing = document.createElement('figure')
+testing.classList.add('mini-hex-container')
+testing.innerHTML = `<div class="mini-hex mini-hex1"></div>
+<div class="mini-hex mini-hex2"></div>
+<div class="mini-hex mini-hex3"></div>
+<div class="mini-hex mini-hex4"></div>
+<div class="mini-hex mini-hex5"></div>
+<img class="mini-hex" id="t-can" src="./assets/SVG/trash-can.svg" alt="t-can">`
+savedSection.appendChild(testing)
+displaySaved()
+}
+
+function displaySaved() {
+  savedSection.classList.remove('hidden')
+  miniHex1.style.backgroundColor = savedPalettes[0].colors[0].color
+  miniHex2.style.backgroundColor = savedPalettes[0].colors[1].color
+  miniHex3.style.backgroundColor = savedPalettes[0].colors[2].color
+  miniHex4.style.backgroundColor = savedPalettes[0].colors[3].color
+  miniHex5.style.backgroundColor = savedPalettes[0].colors[4].color
 }
 
 
-// function appendChild(color, hexCode) {
-//   var elementColor = createElementWithClass("div", mini-hex)
-// }
+
+
+
 
 function genColor(){
     var hexId = ``;
@@ -117,14 +138,6 @@ function genColor(){
 
 
 
-function displaySaved() {
-    savedSection.classList.remove('hidden')
-    miniHex1.style.backgroundColor = savedPalettes[0].colors[0].color
-    miniHex2.style.backgroundColor = savedPalettes[0].colors[1].color
-    miniHex3.style.backgroundColor = savedPalettes[0].colors[2].color
-    miniHex4.style.backgroundColor = savedPalettes[0].colors[3].color
-    miniHex5.style.backgroundColor = savedPalettes[0].colors[4].color
-}
 
 function hideSavedPalettes(){
   savedSection.classList.add('hidden')
