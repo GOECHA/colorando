@@ -97,7 +97,7 @@ function savePalette() {
         savedPalettes.push(freshPalette)
         console.log(savedPalettes)
     }
-    makeNewPalette()
+    makeNewPalette() 
     displaySaved()
 }
 
@@ -126,9 +126,12 @@ function displaySaved() {
     miniHex5.style.backgroundColor = savedPalettes[0].colors[4].color
 }
 
-// hideSavedPalettes(){
-//   savedSection.classList.tadd('hidden')
-// }
+function hideSavedPalettes(){
+  savedSection.classList.add('hidden')
+}
+
+
+
 
     // var freshPalette = ''
     // for (var i = 0; i < savedPalettes.length; i ++){
