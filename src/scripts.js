@@ -12,40 +12,47 @@ var hidePalettes = document.querySelector('#hide-palettes')
 var savedSection = document.querySelector('.saved-palettes')
 var locks = document.querySelectorAll('.locks')
 
-
+window.addEventListener('keypress', spacebar)
 window.addEventListener('load', makeNewPalette)
 randomButton.addEventListener('click', makeNewPalette)
 savedButton.addEventListener('click', savePalette)
-swatchContainer.addEventListener('click', lockColor)
+swatchContainer.addEventListener('click', checkLockID)
 // hidePalettes.addEventListener('click', savedSection)
 
 
 
-function lockColor(e) {
-  console.log(e.target)
 
-  for (var i = 0; i < freshPalette.colors.length)
-  // lockHex.currentTarget
-// var hexId = swatches.dataset.id //not id, but an element within this.colors 
-  
-// for (var i = 0; i < freshPalette.colors.length; i ++){
-//    if (freshPalette[i].id == hexId){
-//      locks.classList.add('hidden')
-//    }
-// } 
-// console.log(`1`, swatches)
+function spacebar(key){
+  if(key.keyCode === 32){
+    makeNewPalette()
+  }
+}
 
+function checkLockID(event){
+  var lockID = event.target.id
+  console.log(lockID)
+for (var i = 0; i < freshPalette.colors.length; i++)
+// if(freshPalette[i].colors.id === locks[i].id){
 
 }
 
+
+    function replaceUnlocked() {
+      for (var i = 0; i < 5; i ++) {
+        if (!this.colors[i].locked) {
+          this.colors.splice(i, 1, new Color())
+        }
+      }
+  }
 
 
 function makeNewPalette() {
     freshPalette = new Palette();
     for (var i = 0; i < freshPalette.colors.length; i++) {
       allHexCodes[i].innerText = freshPalette.colors[i].color
+      locks[i].id = freshPalette.colors[i].color
       allSwatches[i].style.backgroundColor = freshPalette.colors[i].color;
-    }locks.id = hexId
+    }
 }
 
 function savePalette() {
@@ -61,7 +68,7 @@ function savePalette() {
 function append () {
   var testing = document.createElement('figure')
   testing.classList.add('mini-hex-container')
-  testing.lockColor('id',`${freshPalette.id}`)
+  testing.setAttribute('id',`${freshPalette.id}`)
   testing.innerHTML = `<div class="mini-hex mini-hex1" style="background: ${freshPalette.colors[0].color};"></div>
   <div class="mini-hex mini-hex2" style="background:${freshPalette.colors[1].color};"></div>
   <div class="mini-hex mini-hex3" style="background:${freshPalette.colors[2].color};"></div>
@@ -70,8 +77,6 @@ function append () {
   <img class="mini-hex" id="t-can" src="./assets/SVG/trash-can.svg" alt="t-can">`
   savedSection.appendChild(testing)
 }
-
-
 
 
 function genColor(){
