@@ -21,10 +21,3 @@ class Palette {
     }
   
 
-  //   replaceUnlocked() {
-  //     for (var i = 0; i < 5; i ++) {
-  //       if (!this.colors[i].locked) {
-  //         this.colors.splice(i, 1, new Color())
-  //       }
-  //     }
-  // }
