@@ -5,6 +5,7 @@ var freshPalette;
 var allSwatches = document.querySelectorAll('.swatch');
 
 var randomButton = document.querySelector('#random')
+var newColorButton = document.querySelector('#new-color')
 var savedButton = document.querySelector('#save')
 var swatchContainer = document.querySelector('.swatch-container')
 var savedSection = document.querySelector('.saved-palettes')
@@ -12,13 +13,32 @@ var hidePalettes = document.querySelector('#hide-palettes')
 var savedSection = document.querySelector('.saved-palettes')
 var locks = document.querySelectorAll('.locks')
 var error = document.querySelectorAll('.error')
+// var body = document.querySelector('body')
+
 window.addEventListener('keypress', spacebar)
 window.addEventListener('load', makeNewPalette)
-randomButton.addEventListener('click', checkValue)
+randomButton.addEventListener('click', makeNewPalette)
+newColorButton.addEventListener('click', checkValue)
 savedButton.addEventListener('click', savePalette)
+
+savedSection.addEventListener('click', function(event){
+  if(event.target.className === 't-can'){
+    deleteSavedMiniSwatch(event);
+  }
+});
+
 swatchContainer.addEventListener('click', lock)
+
 // hidePalettes.addEventListener('click', savedSection)
 
+
+function deleteSavedMiniSwatch(event){
+  for(var i = 0; i < savedPalettes.length; i++){
+    if(savedPalettes[i].id === event.target.id){
+    savedPalettes.splice(i, 1);
+    }
+  }
+};
 
 
 
@@ -53,21 +73,19 @@ function lock(event){
 //if the index value is true, do nothing, dont generate, dont display
 //if the value is still false replace, generate, display
 function checkValue(){
-for (var i = 0; i < freshPalette.colors.length; i++){
-  if(!freshPalette.colors[i].locked) {
+  for (var i = 0; i < freshPalette.colors.length; i++){
+    if(!freshPalette.colors[i].locked) {
     freshPalette.colors[i] = new Color()
   }
 }
 display()
 }
 
-
 function makeNewPalette() {
-    freshPalette = new Palette()
+    freshPalette = new Palette();
     console.log(freshPalette);
     display()
   }
-
 
   function display() {
     for (var i = 0; i < freshPalette.colors.length; i++) {
@@ -95,7 +113,7 @@ function savePalette() {
     if (!savedPalettes.includes(freshPalette) && savedPalettes.length < 8){
         savedPalettes.push(freshPalette)
         addToSaved()
-    } 
+    }
     }
 
 function addToSaved () {
@@ -107,12 +125,10 @@ function addToSaved () {
   <div class="mini-hex mini-hex3" style="background:${freshPalette.colors[2].color};"></div>
   <div class="mini-hex mini-hex4" style="background:${freshPalette.colors[3].color};"></div>
   <div class="mini-hex mini-hex5" style="background:${freshPalette.colors[4].color};"></div>
-  <img class="mini-hex" id="t-can" src="./assets/SVG/trash-can.svg" alt="t-can">`
+  <img class="mini-hex t-can" id="t-can" src="./assets/SVG/trash-can.svg" alt="t-can">
+  <img class="mini-hex hidden t-can" id="t-can" src="./assets/SVG/open-trash-can.svg" alt="open-t-can">`
   savedSection.appendChild(miniSwatch)
 }
-
-
-
 
 // function show(element){
 // element.classList.remove.("hidden")
