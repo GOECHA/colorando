@@ -1,6 +1,6 @@
 * {
   /* border: solid red 1px; */
-  font-family: briller,sans-serif;
+  font-family: briller, sans-serif;
   font-weight: 275;
   font-style: normal;
 }
@@ -9,7 +9,7 @@ body {
   background-image: linear-gradient(#000000 15%, #4d4d4d, #898989, #c6c7c7, #ffffff);
   height: 98vh;
   width: 98.5vw;
-  font-family: briller,sans-serif;
+  font-family: briller, sans-serif;
   font-weight: 200;
   font-style: normal;
   display: flex;
@@ -24,7 +24,7 @@ header {
   margin: 0px;
 }
 
-h1{
+h1 {
   width: 100%;
   text-align: center;
   font-size: 80px;
@@ -37,11 +37,11 @@ h1{
   -webkit-text-fill-color: transparent;
 }
 
-main{
+main {
   height: 100%;
   width: 100%;
-
 }
+
 .swatch-container {
   height: 65%;
   width: 100%;
@@ -50,36 +50,37 @@ main{
   align-items: stretch;
   justify-content: space-evenly;
 }
+
 .swatch {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 18%;
-
 }
-.lock-container{
+
+.lock-container {
   width: 15%;
   height: 10%;
 }
-.locks{
+
+.locks {
   height: 100%;
   width: 100%;
 }
 
-.locks:hover{
-height: 135%;
-transition: linear 0.8;
-cursor: pointer;
+.locks:hover {
+  height: 135%;
+  transition: linear 0.8;
+  cursor: pointer;
 }
-
 
 .hex-code {
   width: 33%;
   font-size: 1em;
 }
 
-.user-input{
+.user-input {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -87,7 +88,8 @@ cursor: pointer;
   height: 10%;
   margin-bottom: 10px;
 }
-.users-buttons{
+
+.users-buttons {
   height: 40%;
 }
 
@@ -99,15 +101,16 @@ button {
   height: 100%;
 }
 
-button:hover{
-   background-image: linear-gradient(90deg, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
-    animation:slidebg 10s linear infinite;
-    color: #ffffff;
-    cursor: pointer;
+button:hover {
+  background-image: linear-gradient(90deg, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+  animation: slidebg 10s linear infinite;
+  color: #ffffff;
+  cursor: pointer;
 }
+
 @keyframes slidebg {
   to {
-    background-position:20vw;
+    background-position: 20vw;
   }
 }
 
@@ -118,18 +121,18 @@ button:hover{
   justify-content: center;
 }
 
-.saved-palettes{
-border-top: solid blue 2px;
-border-image:linear-gradient(90deg,
-  #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722) 10;
-    display: flex;
-  	flex-direction: row;
-  	flex-wrap: wrap;
-  	justify-content: center;
-  	align-items: baseline;
-  	align-content: flex-start;
-    width: 100%;
-    height: 22%;
+.saved-palettes {
+  border-top: solid blue 2px;
+  border-image: linear-gradient(90deg,
+      #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722) 10;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  align-content: flex-start;
+  width: 100%;
+  height: 22%;
 }
 
 .error {
@@ -139,11 +142,11 @@ border-image:linear-gradient(90deg,
 }
 
 .mini-hex-container {
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-height: auto;
-width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: auto;
+  width: auto;
 }
 
 .mini-hex {
@@ -151,9 +154,8 @@ width: auto;
   width: 30px;
 }
 
-
-.hide-palettes{
-height:15%
+.hide-palettes {
+  height: 15%
 }
 
 .hidden {

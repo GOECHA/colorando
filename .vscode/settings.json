@@ -1,5 +1,8 @@
 {
     "editor.accessibilitySupport": "off",
     "editor.hover.above": false,
-    "editor.hover.enabled": false
+    "editor.hover.enabled": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.minimap.enabled": false
 }
