@@ -28,6 +28,35 @@ function spacebar(key){
   }
 }
 
+// function checkLockID(event){
+//   var lockID = event.target.id
+//   for (var i = 0; i < freshPalette.colors.length; i++) {
+//     if(freshPalette.colors[i].color === lockID){
+//       if(freshPalette.colors[i].locked === true) {
+//         freshPalette.colors[i].locked = false
+//         locks[i].src="./assets/SVG/open.svg"
+//       } else {
+//         freshPalette.colors[i].locked = true
+//         locks[i].src="./assets/SVG/clsd.svg"
+//         console.log(freshPalette.colors[i], lockID)
+//       }
+//     }
+//   }
+// }
+
+
+function makeNewPalette() {
+    freshPalette = new Palette();
+    for (var i = 0; i < freshPalette.colors.length; i++) {
+      if (!freshPalette.colors[i].locked) {
+        freshPalette.colors.splice(i, 1, new Color())
+        allHexCodes[i].innerText = freshPalette.colors[i].color
+        locks[i].id = freshPalette.colors[i].color
+        allSwatches[i].style.backgroundColor = freshPalette.colors[i].color;
+    }
+  }
+}
+
 function checkLockID(event){
   var lockID = event.target.id
   for (var i = 0; i < freshPalette.colors.length; i++) {
@@ -44,24 +73,23 @@ function checkLockID(event){
   }
 }
 
+  //   function replaceUnlocked() {
+  //     for (var i = 0; i < freshPalette.colors.length; i++) {
+  //       console.log(freshPalette.colors[i])
+  //       if (!freshPalette.colors[i].locked) {
+  //         freshPalette.colors.splice(i, 1, new Color())
+  //       }
+  //     }
+  // }
 
-    function replaceUnlocked() {
-      for (var i = 0; i < 5; i ++) {
-        if (!this.colors[i].locked) {
-          this.colors.splice(i, 1, new Color())
-        }
-      }
-  }
-
-
-function makeNewPalette() {
-    freshPalette = new Palette();
-    for (var i = 0; i < freshPalette.colors.length; i++) {
-      allHexCodes[i].innerText = freshPalette.colors[i].color
-      locks[i].id = freshPalette.colors[i].color
-      allSwatches[i].style.backgroundColor = freshPalette.colors[i].color;
-  }
-}
+// function makeNewPalette() {
+//     freshPalette = new Palette();
+//     for (var i = 0; i < freshPalette.colors.length; i++) {
+//       allHexCodes[i].innerText = freshPalette.colors[i].color
+//       locks[i].id = freshPalette.colors[i].color
+//       allSwatches[i].style.backgroundColor = freshPalette.colors[i].color;
+//   }
+// }
 
 function savePalette() {
     savedSection.classList.remove('hidden')
