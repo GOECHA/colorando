@@ -132,6 +132,11 @@ border-image:linear-gradient(90deg,
     height: 22%;
 }
 
+.error {
+  color: #ef5350;
+  text-align: center;
+  font-weight: bold;
+}
 
 .mini-hex-container {
 display: flex;
