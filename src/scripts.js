@@ -30,10 +30,18 @@ function spacebar(key){
 
 function checkLockID(event){
   var lockID = event.target.id
-  console.log(lockID)
-for (var i = 0; i < freshPalette.colors.length; i++)
-// if(freshPalette[i].colors.id === locks[i].id){
-
+  for (var i = 0; i < freshPalette.colors.length; i++) {
+    if(freshPalette.colors[i].color === lockID){
+      if(freshPalette.colors[i].locked === true) {
+        freshPalette.colors[i].locked = false
+        locks[i].src="./assets/SVG/open.svg"
+      } else {
+        freshPalette.colors[i].locked = true
+        locks[i].src="./assets/SVG/clsd.svg"
+        console.log(freshPalette.colors[i], lockID)
+      }
+    }
+  }
 }
 
 
@@ -52,7 +60,7 @@ function makeNewPalette() {
       allHexCodes[i].innerText = freshPalette.colors[i].color
       locks[i].id = freshPalette.colors[i].color
       allSwatches[i].style.backgroundColor = freshPalette.colors[i].color;
-    }
+  }
 }
 
 function savePalette() {
@@ -62,7 +70,7 @@ function savePalette() {
         console.log(savedPalettes)
         append()
         makeNewPalette()
-    }   
+    }
 }
 
 function append () {
