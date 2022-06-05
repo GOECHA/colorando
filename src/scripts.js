@@ -1,123 +1,134 @@
+// Global variables
 var savedPalettes = [];
 var freshPalette;
-
-// var allHexCodes = document.querySelectorAll('.hex-code');
 var allSwatches = document.querySelectorAll('.swatch');
-
 var randomButton = document.querySelector('#random')
 var savedButton = document.querySelector('#save')
 var swatchContainer = document.querySelector('.swatch-container')
 var savedSection = document.querySelector('.saved-palettes')
-var hidePalettes = document.querySelector('#hide-palettes')
-var savedSection = document.querySelector('.saved-palettes')
-var locks = document.querySelectorAll('.locks')
-var error = document.querySelectorAll('.error')
+var locks = document.querySelector('.locks')
+var error = document.querySelector('.error')
+var hideButton = document.querySelector('.hide-palettes')
+var trashcan = document.querySelector('.tcan')
+
+// EVENT LISTENERS 
 window.addEventListener('keypress', spacebar)
 window.addEventListener('load', makeNewPalette)
-randomButton.addEventListener('click', checkValue)
+randomButton.addEventListener('click', refreshPalette)
 savedButton.addEventListener('click', savePalette)
-swatchContainer.addEventListener('click', lock)
-// hidePalettes.addEventListener('click', savedSection)
+swatchContainer.addEventListener('click', changeLockedValue)
+hideButton.addEventListener('click', hideSaved)
 
 
 
-
-function spacebar(key){
-  if(key.keyCode === 32){
-    makeNewPalette()
-  }
-}
-
-function lock(event){
+function changeLockedValue(event) {
   var lockID = event.target.id
-  console.log(event.target.id)
-  console.log(freshPalette)
+  console.log(lockID)
   for (var i = 0; i < freshPalette.colors.length; i++) {
-    if(freshPalette.colors[i].color === lockID){
-      if(freshPalette.colors[i].locked === true) {
+    if (freshPalette.colors[i].color === lockID) {
+      if (freshPalette.colors[i].locked === true) {
         freshPalette.colors[i].locked = false
-        // locks[i].src="./assets/SVG/open.svg"
-        // console.log(freshPalette.colors[i], lockID)
+        // locks[i].src = "./assets/SVG/open.svg"
       } else {
         freshPalette.colors[i].locked = true
-        // locks[i].src="./assets/SVG/clsd.svg"
-        // console.log(freshPalette.colors[i], lockID)
+        // locks[i].src = "./assets/SVG/clsd.svg"
       }
     }
   }
 }
 
-
-//when clicked the boolean value of the swatch entirely turns to true
-//iterate through each index of the palette to check its value
-//if the index value is true, do nothing, dont generate, dont display
-//if the value is still false replace, generate, display
-function checkValue(){
-for (var i = 0; i < freshPalette.colors.length; i++){
-  if(!freshPalette.colors[i].locked) {
-    freshPalette.colors[i] = new Color()
+function refreshPalette() {
+  newid = `${Date.now()}`
+  for (var i = 0; i < freshPalette.colors.length; i++) {
+    if (!freshPalette.colors[i].locked) {
+      freshPalette.colors[i] = new Color()
+      freshPalette.id = newid
+      console.log(freshPalette.id)
+    }
   }
+  display()
 }
-display()
-}
-
 
 function makeNewPalette() {
-    freshPalette = new Palette()
-    console.log(freshPalette);
-    display()
-  }
-
-
-  function display() {
-    for (var i = 0; i < freshPalette.colors.length; i++) {
-      // allHexCodes[i].innerText = freshPalette.colors[i].color
-      // locks[i].id = freshPalette.colors[i].color
-      allSwatches[i].style.backgroundColor = freshPalette.colors[i].color;
-      allSwatches[i].innerText = freshPalette.colors[i].color;
-      allSwatches[i].id = freshPalette.colors[i].color;
-      // console.log(freshPalette)
-    }
-  }
-
-
-  function genColor(){
-    var hexId = "";
-    var combos = `abcdef0123456789`;
-    for(var i = 0; i < 6; i++){
-    hexId += combos.charAt(Math.floor(Math.random() * combos.length));
-  }
-    return `#${hexId}`
+  freshPalette = new Palette()
+  console.log(freshPalette.id)
+  display()
 }
 
-function savePalette() {
-  savedSection.classList.remove('hidden')
-    if (!savedPalettes.includes(freshPalette) && savedPalettes.length < 8){
-        savedPalettes.push(freshPalette)
-        addToSaved()
-    } 
-    }
 
-function addToSaved () {
+function display() {
+  for (var i = 0; i < freshPalette.colors.length; i++) {
+    allSwatches[i].style.backgroundColor = freshPalette.colors[i].color;
+    allSwatches[i].innerText = freshPalette.colors[i].color;
+    allSwatches[i].id = freshPalette.colors[i].color
+  }
+}
+
+function genColor() {
+  var hexId = "";
+  var combos = `abcdef0123456789`;
+  for (var i = 0; i < 6; i++) {
+    hexId += combos.charAt(Math.floor(Math.random() * combos.length));
+  }
+  return `#${hexId}`
+}
+
+function savePalette()
+{
+ 
+  show(savedSection)
+  show(hideButton)
+  if (!savedPalettes.includes(freshPalette.id) && savedPalettes.length < 8) {
+    savedPalettes.push(freshPalette.id)
+    addToSaved()
+  }
+  if (savedPalettes.length === 8) {
+    show(error)
+  }
+}
+
+
+function addToSaved() {
   var miniSwatch = document.createElement('figure')
   miniSwatch.classList.add('mini-hex-container')
-  miniSwatch.setAttribute('id',`${freshPalette.id}`)
+  miniSwatch.setAttribute('id', `${freshPalette.id}`)
+  for(var i = 0; i < savedPalettes.length; i++)
   miniSwatch.innerHTML = `<div class="mini-hex mini-hex1" style="background: ${freshPalette.colors[0].color};"></div>
   <div class="mini-hex mini-hex2" style="background:${freshPalette.colors[1].color};"></div>
   <div class="mini-hex mini-hex3" style="background:${freshPalette.colors[2].color};"></div>
   <div class="mini-hex mini-hex4" style="background:${freshPalette.colors[3].color};"></div>
   <div class="mini-hex mini-hex5" style="background:${freshPalette.colors[4].color};"></div>
-  <img class="mini-hex" id="t-can" src="./assets/SVG/trash-can.svg" alt="t-can">`
+  <img class="mini-hex tcan" id="${freshPalette.id}" src="./assets/SVG/trash-can.svg" alt="t-can">`
   savedSection.appendChild(miniSwatch)
+  console.log(miniSwatch)
 }
 
 
-
-
-// function show(element){
-// element.classList.remove.("hidden")
+// function deletePalette(event) {
+//   for (let i = 0; i < savedPalettes.length; i++) {
+//     if (event.target.className === "mini-hex tcan" && event.target.id === freshPalette.id) {
+//       savedPalettes.splice(i, 1);
+//     }
+//   }
+//   savePalette()
 // }
 
-// function hide(element){
-//   element.classList.add.("hidden")
-//   }
+
+
+function show(element) {
+  element.classList.remove('hidden')
+}
+
+function hide(element) {
+  element.classList.add('hidden')
+}
+
+function hideSaved() {
+  hide(savedSection)
+}
+
+function spacebar(key) {
+  if (key.keyCode === 32) {
+    makeNewPalette()
+  }
+}

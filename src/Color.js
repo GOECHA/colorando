@@ -1,7 +1,7 @@
 class Color {
-    constructor(gencolor, lock) {
-      this.color = genColor();
-      this.locked = false;
-    }
-    
+  constructor(gencolor, lock) {
+    this.color = genColor();
+    this.locked = false;
   }
+
+}
