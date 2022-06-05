@@ -21,6 +21,16 @@ class Palette {
         }
       }
   }
-  }
+
+  // toggleLock(){
+  //   if (!this.colors.locked){
+  //    this.colors.locked = true;
+  //   } 
+  //   else {
+  //    this.colors.locked = false;
+  //   }
+  // }
+  
+  };
   
 

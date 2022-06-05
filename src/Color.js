@@ -3,5 +3,5 @@ class Color {
       this.color = genColor();
       this.locked = false;
     }
-    
+   
   }

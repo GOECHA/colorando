@@ -10,16 +10,20 @@ var swatchContainer = document.querySelector('.swatch-container')
 var savedSection = document.querySelector('.saved-palettes')
 var hidePalettes = document.querySelector('#hide-palettes')
 var savedSection = document.querySelector('.saved-palettes')
-var locks = document.querySelectorAll('.locks')
+var locks = document.querySelectorAll('.locks') 
 var error = document.querySelectorAll('.error')
+var lockContainer = document.querySelector('.lock-container')
+// var lockOpen = document.querySelectorAll('#lock-open')
+// var lockClosed = document.querySelectorAll('#lock-closed')
+
+
 window.addEventListener('keypress', spacebar)
 window.addEventListener('load', makeNewPalette)
 randomButton.addEventListener('click', checkValue)
 savedButton.addEventListener('click', savePalette)
 swatchContainer.addEventListener('click', lock)
+
 // hidePalettes.addEventListener('click', savedSection)
-
-
 
 
 function spacebar(key){
@@ -28,25 +32,36 @@ function spacebar(key){
   }
 }
 
+
+
+
 function lock(event){
   var lockID = event.target.id
   console.log(event.target.id)
   console.log(freshPalette)
   for (var i = 0; i < freshPalette.colors.length; i++) {
-    if(freshPalette.colors[i].color === lockID){
       if(freshPalette.colors[i].locked === true) {
-        freshPalette.colors[i].locked = false
-        // locks[i].src="./assets/SVG/open.svg"
-        // console.log(freshPalette.colors[i], lockID)
+        freshPalette.colors[i].locked = false  
+        locks[i].src="./assets/SVG/open.svg"
+        console.log(freshPalette.colors[i], lockID)
       } else {
-        freshPalette.colors[i].locked = true
-        // locks[i].src="./assets/SVG/clsd.svg"
-        // console.log(freshPalette.colors[i], lockID)
+        freshPalette.colors[i].locked = true 
+        locks[i].src="./assets/SVG/clsd.svg"
+        console.log(freshPalette.colors[i], lockID)
+        
       }
     }
-  }
+  
 }
+  
 
+
+
+
+
+
+// 
+// 
 
 //when clicked the boolean value of the swatch entirely turns to true
 //iterate through each index of the palette to check its value
@@ -72,10 +87,10 @@ function makeNewPalette() {
   function display() {
     for (var i = 0; i < freshPalette.colors.length; i++) {
       // allHexCodes[i].innerText = freshPalette.colors[i].color
-      // locks[i].id = freshPalette.colors[i].color
+      locks[i].id = freshPalette.colors[i].color
       allSwatches[i].style.backgroundColor = freshPalette.colors[i].color;
       allSwatches[i].innerText = freshPalette.colors[i].color;
-      allSwatches[i].id = freshPalette.colors[i].color;
+      allSwatches[i].id = freshPalette.colors[i].color;  
       // console.log(freshPalette)
     }
   }
@@ -115,9 +130,11 @@ function addToSaved () {
 
 
 // function show(element){
-// element.classList.remove.("hidden")
+//   var element = element.classList.remove.hidden
+//   return element
 // }
 
 // function hide(element){
-//   element.classList.add.("hidden")
+//   var element = element.classList.add.hidden
+//   return element
 //   }

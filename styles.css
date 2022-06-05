@@ -59,10 +59,15 @@ main{
 
 }
 .lock-container{
+  display: flex;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
   width: 15%;
   height: 10%;
 }
 .locks{
+  position: absolute;
   height: 100%;
   width: 100%;
 }
@@ -74,10 +79,10 @@ cursor: pointer;
 }
 
 
-.hex-code {
+/* .hex-code {
   width: 33%;
   font-size: 1em;
-}
+} */
 
 .user-input{
   display: flex;
