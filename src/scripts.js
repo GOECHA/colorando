@@ -9,6 +9,7 @@ var savedSection = document.querySelector('.saved-palettes')
 var locks = document.querySelector('.locks')
 var error = document.querySelector('.error')
 var hideButton = document.querySelector('.hide-palettes')
+// var deleteMinis = document.querySelectorAll('#mini-hex-container')
 
 
 // EVENT LISTENERS 
@@ -18,8 +19,8 @@ randomButton.addEventListener('click', refreshPalette)
 savedButton.addEventListener('click', savePalette)
 swatchContainer.addEventListener('click', changeLockedValue)
 hideButton.addEventListener('click', hideSaved)
-savedSection.addEventListener('click', deletePal)
-
+// savedSection.addEventListener('click', deletePal)
+// deleteMinis.addEventListener('click', deletePal)
 
 
 function changeLockedValue(event) {
@@ -36,6 +37,18 @@ function changeLockedValue(event) {
     }
   }
 }
+function deletePal(eventHex) {
+// elem.parentNode.removeChild(elem);
+  
+  var miniSection = eventHex.currentTarget
+  var newId = miniSection.dataset.id
+  for (var i = 0; i < freshPalette.length; i++) {
+    if (freshPalette.target.id == newId) {
+      freshPalette.splice(i, 1);
+    }
+  }
+    miniSection.remove()
+  }
 
 function refreshPalette() {
   newid = `${Date.now()}`
@@ -48,6 +61,9 @@ function refreshPalette() {
   }
   display()
 }
+
+
+
 
 function makeNewPalette() {
   freshPalette = new Palette()
@@ -86,35 +102,38 @@ function savePalette() {
 
 
 function addToSaved() {
+  
   var miniSwatch = document.createElement('figure');
   miniSwatch.classList.add('mini-hex-container');
   miniSwatch.setAttribute('id', `${freshPalette.id}`);
-  for (var i = 0; i < savedPalettes.length; i++)
-    miniSwatch.innerHTML = `<div class="mini-hex mini-hex1" style="background: ${freshPalette.colors[0].color};"></div>
+  for (var i = 0; i < freshPalette.length; i++) {
+    miniSwatch.innerHTML = `<div class="mini-hex mini-hex1"   style="background: ${freshPalette.colors[0].color};"></div>
   <div class="mini-hex mini-hex2" style="background:${freshPalette.colors[1].color};"></div>
   <div class="mini-hex mini-hex3" style="background:${freshPalette.colors[2].color};"></div>
   <div class="mini-hex mini-hex4" style="background:${freshPalette.colors[3].color};"></div>
   <div class="mini-hex mini-hex5" style="background:${freshPalette.colors[4].color};"></div>
   <div class="tcan"> <img class="mini-hex" id="${freshPalette.id}" src="./assets/SVG/trash-can.svg" alt="t-can"></div>`;
-  savedSection.appendChild(miniSwatch);
-  console.log(miniSwatch);
-  //  var trashcan = document.querySelector('.tcan');
-  // trashcan.addEventListener('click', deletePalette)
-    console.log(savedPalettes)
-}
+    savedSection.appendChild(miniSwatch);
+    console.log(`1`, addToSaved)
 
-function deletePal(event) {
-   var miniSection = event.currentTarget
-  var id = miniSection.dataset.id
-  for (var i = 0; i < savedPalettes.length; i++) {
-    savedPalettes.splice(id, 1);
+    
   }
-displayPalettes()
-} 
+  var savedHexes = document.querySelectorAll(".mini-hex-container");
+  for (var i = 0; i < savedHexes.length; i++) {
+    savedHexes[i].addEventListener('click', deletePal);
+    
+  }
 
-function displayPalettes() {
-  savedSection.innerHTML = "";
 }
+
+ 
+
+
+
+// function displayPalettes() {
+//   savedSection.innerHTML =``
+      
+// }
 
 
 
