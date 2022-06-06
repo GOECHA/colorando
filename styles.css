@@ -1,5 +1,4 @@
 * {
-  /* border: solid red 1px; */
   font-family: briller, sans-serif;
   font-weight: 275;
   font-style: normal;
@@ -42,6 +41,15 @@ main {
   width: 100%;
 }
 
+p {
+  font-weight: 500;
+  font-size: 100%;
+}
+.hex-code {
+  width: 50%;
+  /* font-size: 100%; */
+}
+
 .swatch-container {
   height: 65%;
   width: 100%;
@@ -57,16 +65,17 @@ main {
   align-items: center;
   justify-content: space-between;
   width: 18%;
+  z-index: -1;
 }
 
 .lock-container {
   width: 15%;
   height: 10%;
+  z-index: 10;
 }
 
 .locks {
-  height: 100%;
-  width: 100%;
+  height: 25px;
 }
 
 .locks:hover {
@@ -75,9 +84,9 @@ main {
   cursor: pointer;
 }
 
-.hex-code {
-  width: 33%;
-  font-size: 1em;
+.locks {
+  height: 100%;
+  width: 100%;
 }
 
 .user-input {
@@ -107,12 +116,12 @@ button:hover {
   color: #ffffff;
   cursor: pointer;
 }
-
+/*
 @keyframes slidebg {
   to {
     background-position: 20vw;
   }
-}
+} */
 
 .saved-palette-heading {
   width: 100%;
