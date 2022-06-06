@@ -158,6 +158,10 @@ button:hover {
   height: 15%
 }
 
+.tcan {
+    cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
