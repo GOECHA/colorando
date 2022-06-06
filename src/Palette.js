@@ -1,7 +1,8 @@
 class Palette {
-  constructor() {
+  constructor(trash) {
     this.colors = this.pushToPalette();
     this.id = Date.now();
+    this.trash = [];
   }
 
   pushToPalette() {
@@ -12,4 +13,8 @@ class Palette {
     }
     return newPalette;
   }
+
+ 
 }
+
+

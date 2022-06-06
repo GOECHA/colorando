@@ -18,7 +18,7 @@ randomButton.addEventListener('click', refreshPalette)
 savedButton.addEventListener('click', savePalette)
 swatchContainer.addEventListener('click', changeLockedValue)
 hideButton.addEventListener('click', hideSaved)
-
+savedSection.addEventListener('click', deletePal)
 
 
 function changeLockedValue(event) {
@@ -92,17 +92,19 @@ function addToSaved() {
   var miniSwatch = document.createElement('figure')
   miniSwatch.classList.add('mini-hex-container')
   miniSwatch.setAttribute('id', `${freshPalette.id}`)
-  for(var i = 0; i < savedPalettes.length; i++)
-  miniSwatch.innerHTML = `<div class="mini-hex mini-hex1" style="background: ${freshPalette.colors[0].color};"></div>
+  for (var i = 0; i < savedPalettes.length; i++) {
+    miniSwatch.innerHTML = `<div class="mini-hex mini-hex1" style="background: ${freshPalette.colors[0].color};"></div>
   <div class="mini-hex mini-hex2" style="background:${freshPalette.colors[1].color};"></div>
   <div class="mini-hex mini-hex3" style="background:${freshPalette.colors[2].color};"></div>
   <div class="mini-hex mini-hex4" style="background:${freshPalette.colors[3].color};"></div>
   <div class="mini-hex mini-hex5" style="background:${freshPalette.colors[4].color};"></div>
   <img class="mini-hex tcan" id="${freshPalette.id}" src="./assets/SVG/trash-can.svg" alt="t-can">`
-  savedSection.appendChild(miniSwatch)
-  console.log(miniSwatch)
-}
+    savedSection.appendChild(miniSwatch)
+    console.log(miniSwatch)
+  }
 
+  // var allSavedSwatches = document.querySelectorAll(".saved-palettes")
+}
 
 // function deletePalette(event) {
 //   for (let i = 0; i < savedPalettes.length; i++) {
@@ -113,6 +115,18 @@ function addToSaved() {
 //   savePalette()
 // }
 
+function deletePal(event) {
+  console.log(savedPalettes)
+  var miniSection = event.currentTarget
+  var id = miniSection.dataset.id
+   moveToTrash() {
+    for (var i = 0; i > this.id.length)
+    var trashItem = freshPalette(this.colors[i], this.id[i], []) 
+  }
+  savedPalettes.splice(id, 1,)
+   console.log(savedPalettes)
+  
+}
 
 
 function show(element) {
