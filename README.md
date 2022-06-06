@@ -1,40 +1,45 @@
-## Introduction
-  - The purpose of this project was to allow students to practice some of the foundational concepts learned so far within the module. There are other extensions that test different skills that we can build on. The project allowed us to personalize/entertain different ideas with HTML/CSS as well as the functionality(JavaScript) behind the web page created.
+## Objective
+  - This project allowed students to collaborate as a team with opportunity to write HTML and CSS, and leverage JavaScript to both create a data model and interact with the DOM. 
+  - This project is a color swatch random generator with locking and saving features. 
+ 
 
 ## Technologies
   - Javascript
   - HTML
   - CSS
 
-
-## Illustrations
-  !
+## Guided Motion Feature
+  ![]()
 
 ## Features
-- Any of the radio buttons chosen will output a specific item from that array.
-- The Choose Your Own Adventure I chose was the "Entire Meal Functionality". Each button will output random items (side, main dish, dessert) OR one of each for a meal idea for any user clicking the buttons.
+- Randomize Palette Button 
+ - Allows user to randomize color swatches
+- Lock Feature 
+ - Allows user to toggle locks on a swatch
+ - This will lock a swatch in place while user randomizes new colors, by clicking the randomize button 
+- Save Palette Button 
+ - Allows user to save a palette selection without duplicates
+ - a use can only sav eup to 8 palettes at a time
+- Delete saved palettes
+ - A user can delete a saved palette by clicking the trash icon 
 
 ## Deployed Page
-
-Visit our published Hang In There Site! [Deployment_URL](https://goecha.github.io/colorando/)
+- [Deployment_URL](https://goecha.github.io/colorando/)
 
 ## Possible Future Extensions
-  - A login page would be super cool, if it were responsive in a sense of allowing users login to be saved/recipe ideas they like to be stored within their page.
-  - Adding in transitions via CSS would have appreciated.
+- Adding a login page that will hold saved palettes for a user. 
+- Scrolling swatches at the bottom of a page from left to right
 
 ## Set Up
-
 1. Fork this repo  
 2. Clone the repo to your local machine
 3. View the project in the browser by running open index.html in your terminal.
 
-
-
 ## Sources
-  - [MDN](http://developer.mozilla.org/en-US/)
-  -[JavaTPoint](https://www.javatpoint.com/how-to-check-a-radio-button-using-javascript)
-  -[YouTube](https://www.youtube.com/)
-  - [W3Schools](https://www.w3schools.com/)
+ - [MDN](http://developer.mozilla.org/en-US/)
+ -[JavaTPoint](https://www.javatpoint.com/how-to-check-a-radio-button-using-javascript)
+ -[YouTube](https://www.youtube.com/)
+ - [W3Schools](https://www.w3schools.com/)
 
 ## Contributors
   - [GitHub Joshua Medina](https://github.com/jrmedina)
