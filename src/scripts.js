@@ -31,7 +31,7 @@ function makeNewPalette() {
 function display() {
   for (var i = 0; i < freshPalette.colors.length; i++) {
     allSwatches[i].style.backgroundColor = freshPalette.colors[i].color;
-    allSwatches[i].innerText = freshPalette.colors[i].color;
+    allSwatches[i].children[0].innerText = freshPalette.colors[i].color;
     allSwatches[i].id = freshPalette.colors[i].color
   }
 }
