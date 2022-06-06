@@ -1,5 +1,4 @@
 * {
-  /* border: solid red 1px; */
   font-family: briller, sans-serif;
   font-weight: 275;
   font-style: normal;
@@ -57,16 +56,17 @@ main {
   align-items: center;
   justify-content: space-between;
   width: 18%;
+  z-index: -1;
 }
 
 .lock-container {
   width: 15%;
   height: 10%;
+  z-index: 10;
 }
 
 .locks {
-  height: 100%;
-  width: 100%;
+  height: 25px;
 }
 
 .locks:hover {
