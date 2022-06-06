@@ -103,7 +103,7 @@ function deletePal(eventHex) {
     }
   }
     miniSection.remove()
-};
+  }
 
 function hideSaved() {
   hide(savedSection)
