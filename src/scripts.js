@@ -72,11 +72,11 @@ function addToSaved() {
   miniSwatch.setAttribute('id', `target`);
   for (var i = 0; i < savedPalettes.length; i++) {
     miniSwatch.innerHTML = `<div class="mini-hex mini-hex1" style="background: ${freshPalette.colors[0].color};"></div>
-  <div class="mini-hex mini-hex2" style="background:${freshPalette.colors[1].color};"></div>
-  <div class="mini-hex mini-hex3" style="background:${freshPalette.colors[2].color};"></div>
-  <div class="mini-hex mini-hex4" style="background:${freshPalette.colors[3].color};"></div>
-  <div class="mini-hex mini-hex5" style="background:${freshPalette.colors[4].color};"></div>
-  <div class="tcan"> <img class="mini-hex" id="${freshPalette.id}" src="./assets/SVG/trash-can.svg" alt="t-can"></div>`;
+      <div class="mini-hex mini-hex2" style="background:${freshPalette.colors[1].color};"></div>
+      <div class="mini-hex mini-hex3" style="background:${freshPalette.colors[2].color};"></div>
+      <div class="mini-hex mini-hex4" style="background:${freshPalette.colors[3].color};"></div>
+      <div class="mini-hex mini-hex5" style="background:${freshPalette.colors[4].color};"></div>
+      <div class="tcan"> <img class="mini-hex" id="${freshPalette.id}" src="./assets/SVG/trash-can.svg" alt="t-can"></div>`;
     savedSection.appendChild(miniSwatch);
   }
   var savedHexes = document.querySelectorAll(".mini-hex-container");
@@ -95,7 +95,14 @@ function deletePal(eventHex) {
   }
     miniSection.remove()
   }
-
+function genColor() {
+  var hexId = "";
+  var combos = `abcdef0123456789`;
+  for (var i = 0; i < 6; i++) {
+    hexId += combos.charAt(Math.floor(Math.random() * combos.length));
+  }
+  return `#${hexId}`
+}
   function hideSaved() {
   hide(savedSection)
   hide(hideButton)
