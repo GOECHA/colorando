@@ -9,40 +9,59 @@ var savedSection = document.querySelector('.saved-palettes')
 var locks = document.querySelector('.locks')
 var error = document.querySelector('.error')
 var hideButton = document.querySelector('.hide-palettes')
-var miniContainer = document.querySelectorAll('.mini-hex-container')
-var test = document.querySelector('#target')
+// var deleteMinis = document.querySelectorAll('#mini-hex-container')
 
 
-
-// EVENT LISTENERS 
+// EVENT LISTENERS
 window.addEventListener('keypress', spacebar)
 window.addEventListener('load', makeNewPalette)
 randomButton.addEventListener('click', refreshPalette)
 savedButton.addEventListener('click', savePalette)
 swatchContainer.addEventListener('click', changeLockedValue)
 hideButton.addEventListener('click', hideSaved)
-
-
+// savedSection.addEventListener('click', deletePal)
+// deleteMinis.addEventListener('click', deletePal)
 
 
 function changeLockedValue(event) {
-  lockID = event.target.id;
+  var lockID = event.target.id
   for (var i = 0; i < freshPalette.colors.length; i++) {
     if (freshPalette.colors[i].color === lockID) {
-      freshPalette.colors[i].locked = !freshPalette.colors[i].locked;
+      if (freshPalette.colors[i].locked === true) {
+        freshPalette.colors[i].locked = false
+        // locks[i].src = "./assets/SVG/open.svg"
+      } else {
+        freshPalette.colors[i].locked = true
+        // locks[i].src = "./assets/SVG/clsd.svg"
+      }
     }
   }
 }
+function deletePal(eventHex) {
+// elem.parentNode.removeChild(elem);
+
+  var miniSection = eventHex.currentTarget
+  var newId = miniSection.dataset.id
+  for (var i = 0; i < freshPalette.length; i++) {
+    if (freshPalette.target.id == newId) {
+      freshPalette.splice(i, 1);
+    }
+  }
+    miniSection.remove()
+  }
 
 function refreshPalette() {
+  newid = `${Date.now()}`
   for (var i = 0; i < freshPalette.colors.length; i++) {
     if (!freshPalette.colors[i].locked) {
       freshPalette.colors[i] = new Color()
-      console.log(freshPalette.id)
+      freshPalette.id = newid
+      // console.log(freshPalette.id)
     }
   }
   display()
 }
+
 
 function makeNewPalette() {
   freshPalette = new Palette()
@@ -70,58 +89,49 @@ function genColor() {
 function savePalette() {
   show(savedSection)
   show(hideButton)
-  if (savedPalettes.length < 8) {
-    savedPalettes.push(freshPalette)
+  if (!savedPalettes.includes(freshPalette.id ) ) {
+    savedPalettes.push(freshPalette.id)
     addToSaved()
   }
-  if (savedPalettes.length === 8) {
-    show(error)
-  }
+  // if (savedPalettes.length === 8) {
+  //   show(error)
+  // }
 }
+
 
 function addToSaved() {
   miniSwatch = document.createElement('figure');
   miniSwatch.classList.add('mini-hex-container');
   miniSwatch.setAttribute('id', `target`);
-  for (var i = 0; i < savedPalettes.length; i++)
-    miniSwatch.innerHTML = `<div class="mini-hex mini-hex1" style="background: ${savedPalettes[i].colors[0].color};"></div>
-  <div class="mini-hex mini-hex2" style="background:${savedPalettes[i].colors[1].color};"></div>
-  <div class="mini-hex mini-hex3" style="background:${savedPalettes[i].colors[2].color};"></div>
-  <div class="mini-hex mini-hex4" style="background:${savedPalettes[i].colors[3].color};"></div>
-  <div class="mini-hex mini-hex5" style="background:${savedPalettes[i].colors[4].color};"></div>
-  <div class="tcan"> <img class="mini-hex" src="./assets/SVG/trash-can.svg" alt="t-can"></div>`;
-  savedSection.appendChild(miniSwatch);
-  trashcan = document.querySelector('.tcan')
-  trashcan.addEventListener('click', deletePal)
-
-}
-// function addToSaved() {
-//   var newMini = '';
-//   for (var i = 0; i < savedPalettes.length; i++) {
-//     newMini = newMini + `<div class="mini-hex mini-hex1" style="background: ${savedPalettes[i].colors[0].color};"></div>
-// //   <div class="mini-hex mini-hex2" style="background:${savedPalettes[i].colors[1].color};"></div>
-// //   <div class="mini-hex mini-hex3" style="background:${savedPalettes[i].colors[2].color};"></div>
-// //   <div class="mini-hex mini-hex4" style="background:${savedPalettes[i].colors[3].color};"></div>
-// //   <div class="mini-hex mini-hex5" style="background:${savedPalettes[i].colors[4].color};"></div>
-// //   <div class="tcan"> <img class="mini-hex" src="./assets/SVG/trash-can.svg" alt="t-can"></div>`;
-//   }
-//   //   savedSection.appendChild(miniSwatch);
-//   //   var trashcan = document.querySelector('.tcan')
-//   //   trashcan.addEventListener('click', deletePal)
-
-
-//   miniContainer.innerHTML = newMini;
-
-// }
-function deletePal() {
   for (var i = 0; i < savedPalettes.length; i++) {
-     miniSwatch.innerHTML = ``
-    if (miniSwatch.id == `target`) {
-      savedPalettes.splice(i, 1);
-    }
+    miniSwatch.innerHTML = `<div class="mini-hex mini-hex1" style="background: ${freshPalette.colors[0].color};"></div>
+  <div class="mini-hex mini-hex2" style="background:${freshPalette.colors[1].color};"></div>
+  <div class="mini-hex mini-hex3" style="background:${freshPalette.colors[2].color};"></div>
+  <div class="mini-hex mini-hex4" style="background:${freshPalette.colors[3].color};"></div>
+  <div class="mini-hex mini-hex5" style="background:${freshPalette.colors[4].color};"></div>
+  <div class="tcan"> <img class="mini-hex" id="${freshPalette.id}" src="./assets/SVG/trash-can.svg" alt="t-can"></div>`;
+    savedSection.appendChild(miniSwatch);
+    // console.log(`1`, addToSaved)
+
+
   }
+  var savedHexes = document.querySelectorAll(".mini-hex-container");
+  for (var i = 0; i < savedHexes.length; i++) {
+  savedHexes[i].addEventListener('click', deletePal);
+
+  }
+
 }
 
+
+
+
+
+function displayPalettes() {
+  savedSection.innerHTML =``
+
+}
+console.log(displayPalettes)
 
 
 
@@ -135,7 +145,6 @@ function hide(element) {
 
 function hideSaved() {
   hide(savedSection)
-   hide(hideButton)
 }
 
 function spacebar(key) {
