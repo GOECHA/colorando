@@ -102,12 +102,12 @@ function savePalette() {
 
 
 function addToSaved() {
-  
-  var miniSwatch = document.createElement('figure');
+  // miniSwatch = document.querySelector("saved-palettes hidden");
+  miniSwatch = document.createElement('g');
   miniSwatch.classList.add('mini-hex-container');
-  miniSwatch.setAttribute('id', `${freshPalette.id}`);
-  for (var i = 0; i < freshPalette.length; i++) {
-    miniSwatch.innerHTML = `<div class="mini-hex mini-hex1"   style="background: ${freshPalette.colors[0].color};"></div>
+  miniSwatch.setAttribute('id', `target`);
+  for (var i = 0; i < savedPalettes.length; i++) {
+    miniSwatch.innerHTML = miniSwatch + `<div class="mini-hex mini-hex1"   style="background: ${freshPalette.colors[0].color};"></div>
   <div class="mini-hex mini-hex2" style="background:${freshPalette.colors[1].color};"></div>
   <div class="mini-hex mini-hex3" style="background:${freshPalette.colors[2].color};"></div>
   <div class="mini-hex mini-hex4" style="background:${freshPalette.colors[3].color};"></div>
@@ -120,7 +120,7 @@ function addToSaved() {
   }
   var savedHexes = document.querySelectorAll(".mini-hex-container");
   for (var i = 0; i < savedHexes.length; i++) {
-    savedHexes[i].addEventListener('click', deletePal);
+  savedHexes[i].addEventListener('click', deletePal);
     
   }
 
@@ -130,12 +130,11 @@ function addToSaved() {
 
 
 
-// function displayPalettes() {
-//   savedSection.innerHTML =``
+function displayPalettes() {
+  savedSection.innerHTML =``
       
-// }
-
-
+}
+console.log(displayPalettes)
 
 
 
