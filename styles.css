@@ -42,6 +42,15 @@ main {
   width: 100%;
 }
 
+p {
+  font-weight: 500;
+  font-size: 100%;
+}
+.hex-code {
+  width: 50%;
+  /* font-size: 100%; */
+}
+
 .swatch-container {
   height: 65%;
   width: 100%;
@@ -63,21 +72,15 @@ main {
   width: 15%;
   height: 10%;
 }
-
-.locks {
-  height: 100%;
-  width: 100%;
-}
-
 .locks:hover {
   height: 135%;
   transition: linear 0.8;
   cursor: pointer;
 }
 
-.hex-code {
-  width: 33%;
-  font-size: 1em;
+.locks {
+  height: 100%;
+  width: 100%;
 }
 
 .user-input {
@@ -107,12 +110,12 @@ button:hover {
   color: #ffffff;
   cursor: pointer;
 }
-
+/*
 @keyframes slidebg {
   to {
     background-position: 20vw;
   }
-}
+} */
 
 .saved-palette-heading {
   width: 100%;
