@@ -2,6 +2,13 @@
   - This project allowed students to collaborate as a team with opportunity to write HTML and CSS, and leverage JavaScript to both create a data model and interact with the DOM. 
   - This project is a color swatch random generator with locking and saving features. 
  
+## GitHub PR template
+<img width="400" alt="GitHub CheetSheet" src="https://user-images.githubusercontent.com/102189342/172449916-28c974a1-51b7-40ed-b466-5bc135bf4e73.png">
+ 
+## Illustrated Design Mock-Up
+<img width="400" alt="Screen Shot 2022-06-01 at 9 18 19 AM" src="https://user-images.githubusercontent.com/102189342/172449944-d15d2d65-bc71-483d-a684-d0b358d106ed.png">
+
+
 ## Deployed Page
 - [Deployment_URL](https://goecha.github.io/colorando/)
 
