@@ -70,7 +70,6 @@ function savePalette() {
   addToSaved()
   };
   
-
 function addToSaved() {
   miniSwatch = document.createElement('figure');
   miniSwatch.classList.add('mini-hex-container');
