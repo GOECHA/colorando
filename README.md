@@ -2,6 +2,9 @@
   - This project allowed students to collaborate as a team with opportunity to write HTML and CSS, and leverage JavaScript to both create a data model and interact with the DOM. 
   - This project is a color swatch random generator with locking and saving features. 
  
+## Deployed Page
+- [Deployment_URL](https://goecha.github.io/colorando/)
+
 
 ## Technologies
   - Javascript
@@ -9,22 +12,25 @@
   - CSS
 
 ## Guided Motion Feature
-  ![]()
+
+  https://user-images.githubusercontent.com/102757890/172267719-adf88db3-9642-4557-9898-394cbbe25c8a.mp4
+
 
 ## Features
 - Randomize Palette Button 
  - Allows user to randomize color swatches
+ - Bonus: A user can randomize the palette by clicking the spacebar
+
 - Lock Feature 
  - Allows user to toggle locks on a swatch
  - This will lock a swatch in place while user randomizes new colors, by clicking the randomize button 
+
 - Save Palette Button 
  - Allows user to save a palette selection without duplicates
- - a use can only sav eup to 8 palettes at a time
+ - a use can only save up to as many palettes as they would like
+
 - Delete saved palettes
  - A user can delete a saved palette by clicking the trash icon 
-
-## Deployed Page
-- [Deployment_URL](https://goecha.github.io/colorando/)
 
 ## Possible Future Extensions
 - Adding a login page that will hold saved palettes for a user. 
